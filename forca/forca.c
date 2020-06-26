@@ -23,7 +23,6 @@ void chuta()
     chutesDados++;
 }
 
-
 void desenhaforca()
 {
     // imprime a palavra secreta
@@ -44,7 +43,13 @@ void desenhaforca()
 
 void escolhepalavra()
 {
-    sprintf(palavrasecreta, "MELANCIA");
+    FILE* f;
+    f = fopen("palavras.txt", "r");
+
+
+
+
+    fclose(f);
 }
 
 int acertou()
@@ -58,7 +63,6 @@ int acertou()
     }
     return 1;
 }
-
 
 int enforcou()
 {
