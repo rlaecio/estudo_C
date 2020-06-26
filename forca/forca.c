@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <string.h>
+#include "forca.h"
 
+// global variables
 char palavrasecreta[20];
 char chutes[26];
 int chutesDados = 0;
 
+// functions declarations
 void abertura()
 {
     printf("**************************************\n");
@@ -20,19 +23,6 @@ void chuta()
     chutesDados++;
 }
 
-int jachutou(char letra)
-{
-    int achou = 0;
-    for (int j = 0; j < chutesDados; j++)
-    {
-        if (chutes[j] == letra)
-        {
-            achou = 1;
-            break;
-        }
-    }
-    return achou;
-}
 
 void desenhaforca()
 {
@@ -57,6 +47,19 @@ void escolhepalavra()
     sprintf(palavrasecreta, "MELANCIA");
 }
 
+int acertou()
+{
+    for (int i = 0; i < strlen(palavrasecreta); i++)
+    {
+        if (!jachutou(palavrasecreta[i]))
+        {
+            return 0;
+        }  
+    }
+    return 1;
+}
+
+
 int enforcou()
 {
     int erros = 0;
@@ -77,10 +80,24 @@ int enforcou()
     return erros >= 5;
 }
 
-int main()
+int jachutou(char letra)
 {
-    int acertou = 0;
-   
+    int achou = 0;
+    for (int j = 0; j < chutesDados; j++)
+    {
+        if (chutes[j] == letra)
+        {
+            achou = 1;
+            break;
+        }
+    }
+    return achou;
+}
+
+
+// --
+int main()
+{   
     escolhepalavra();
     abertura();
 
@@ -88,5 +105,5 @@ int main()
     {
         desenhaforca();
         chuta();
-    } while (!acertou && !enforcou());
+    } while (!acertou() && !enforcou());
 }
