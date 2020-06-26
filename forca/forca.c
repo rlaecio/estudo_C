@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 #include <string.h>
+
 #include "forca.h"
 
 // global variables
@@ -46,8 +49,16 @@ void escolhepalavra()
     FILE* f;
     f = fopen("palavras.txt", "r");
 
+    int qtddepalavras;
+    fscanf(f, "%d", &qtddepalavras);
 
+    srand(time(0));
+    int randomico = rand() % qtddepalavras;
 
+    for (int i = 0; i <= randomico; i++)
+    {
+        fscanf(f, "%s", palavrasecreta);
+    }
 
     fclose(f);
 }
