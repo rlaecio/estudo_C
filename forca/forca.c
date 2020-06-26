@@ -28,6 +28,22 @@ void chuta()
 
 void desenhaforca()
 {
+    // desenha a forca
+    int erros = chuteserrados();
+
+    printf("  _______       \n");
+    printf(" |/      |      \n");
+    printf(" |      %c%c%c  \n", (erros >= 1 ? '(' : ' '),
+           (erros >= 1 ? '_' : ' '), (erros >= 1 ? ')' : ' '));
+    printf(" |      %c%c%c  \n", (erros >= 3 ? '\\' : ' '),
+           (erros >= 2 ? '|' : ' '), (erros >= 3 ? '/' : ' '));
+    printf(" |       %c     \n", (erros >= 2 ? '|' : ' '));
+    printf(" |      %c %c   \n", (erros >= 4 ? '/' : ' '),
+           (erros >= 4 ? '\\' : ' '));
+    printf(" |              \n");
+    printf("_|___           \n");
+    printf("\n\n");
+
     // imprime a palavra secreta
     for (int i = 0; i < strlen(palavrasecreta); i++)
     {
@@ -114,9 +130,10 @@ int acertou()
     return 1;
 }
 
-int enforcou()
+int chuteserrados()
 {
     int erros = 0;
+
     for (int i = 0; i < chutesDados; i++)
     {
         int existe = 0;
@@ -134,7 +151,12 @@ int enforcou()
             erros++;
         }
     }
-    return erros >= 5;
+    return erros;
+}
+
+int enforcou()
+{  
+    return chuteserrados() >= 5;
 }
 
 int jachutou(char letra)

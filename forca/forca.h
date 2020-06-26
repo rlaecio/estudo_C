@@ -9,3 +9,4 @@ int acertou();
 int enforcou();
 int jachutou(char letra);
 void escolhepalavra();
+int chuteserrados();
