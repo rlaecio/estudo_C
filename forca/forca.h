@@ -1,3 +1,5 @@
+#define TAMANHO_PALAVRA 20
+
 // header files invocation
 void abertura();
 void chuta();
