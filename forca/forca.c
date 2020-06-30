@@ -30,16 +30,12 @@ void desenhaforca()
 {
     // desenha a forca
     int erros = chuteserrados();
-
     printf("  _______       \n");
     printf(" |/      |      \n");
-    printf(" |      %c%c%c  \n", (erros >= 1 ? '(' : ' '),
-           (erros >= 1 ? '_' : ' '), (erros >= 1 ? ')' : ' '));
-    printf(" |      %c%c%c  \n", (erros >= 3 ? '\\' : ' '),
-           (erros >= 2 ? '|' : ' '), (erros >= 3 ? '/' : ' '));
+    printf(" |      %c%c%c  \n", (erros >= 1 ? '(' : ' '), (erros >= 1 ? '_' : ' '), (erros >= 1 ? ')' : ' '));
+    printf(" |      %c%c%c  \n", (erros >= 3 ? '\\' : ' '), (erros >= 2 ? '|' : ' '), (erros >= 3 ? '/' : ' '));
     printf(" |       %c     \n", (erros >= 2 ? '|' : ' '));
-    printf(" |      %c %c   \n", (erros >= 4 ? '/' : ' '),
-           (erros >= 4 ? '\\' : ' '));
+    printf(" |      %c %c   \n", (erros >= 4 ? '/' : ' '), (erros >= 4 ? '\\' : ' '));
     printf(" |              \n");
     printf("_|___           \n");
     printf("\n\n");
@@ -155,7 +151,7 @@ int chuteserrados()
 }
 
 int enforcou()
-{  
+{
     return chuteserrados() >= 5;
 }
 
@@ -205,7 +201,7 @@ int main()
         printf("      _______________        \n");
         printf("     /               \\      \n");
         printf("    /                 \\      \n");
-        printf("   //                  \\/\\   \n");
+        printf("   /                  \\/\\   \n");
         printf("  \\|   XXXX     XXXX   | /   \n");
         printf("   |   XXXX     XXXX   |/    \n");
         printf("   |   XXX       XXX   |     \n");
